@@ -14,7 +14,12 @@
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
-		"paths": {}
+		"paths": {
+			"@demo/formly": ["libs/formly/src/index.ts"],
+			"@demo/formly-productive": ["libs/formly-productive/src/index.ts"],
+			"@demo/reactive": ["libs/reactive/src/index.ts"],
+			"@demo/template-driven": ["libs/template-driven/src/index.ts"]
+		}
 	},
 	"exclude": ["node_modules", "tmp"]
 }

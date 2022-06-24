@@ -1,0 +1,22 @@
+{
+	"projectType": "library",
+	"sourceRoot": "libs/template-driven/src",
+	"prefix": "td",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/template-driven"],
+			"options": {
+				"jestConfig": "libs/template-driven/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/template-driven/**/*.ts", "libs/template-driven/**/*.html"]
+			}
+		}
+	},
+	"tags": ["feature"]
+}
