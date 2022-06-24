@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import 'theme-variables';
+
+@include mat.core();
+
+$my-app-theme: mat.define-light-theme(
+	(
+		color: (
+			primary: $my-app-primary,
+			accent: $my-app-accent,
+			warn: $my-app-warn,
+			altPrimary: $my-alt-primary,
+		),
+	)
+);
+@include mat.all-component-themes($my-app-theme);
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* 
+	Reset box-sizing to border-box for everything (so that the size of an element is the size of its border
+	https://css-tricks.com/box-sizing/
+ */
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}

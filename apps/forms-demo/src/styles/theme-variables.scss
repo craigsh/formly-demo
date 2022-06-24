@@ -1,0 +1,53 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+// Define the theme - indigo/pink/red - traditional Staff.Care colours.
+$my-app-primary: mat.define-palette(mat.$deep-purple-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+// Some alternative colours
+$my-alt-primary: mat.define-palette(mat.$amber-palette);
+$my-app-grey: mat.define-palette(mat.$grey-palette);
+
+// Grab the actual colours from the palette
+$primary: mat.get-color-from-palette($my-app-primary, 500);
+$primary-slight-lighter: mat.get-color-from-palette($my-app-primary, 500);
+$primary-lighter: mat.get-color-from-palette($my-app-primary, 400);
+$primary-menu-highlight: mat.get-color-from-palette($my-app-primary, 200);
+$primary-very-light: mat.get-color-from-palette($my-app-primary, 50);
+
+$alt-primary: mat.get-color-from-palette($my-alt-primary, 700);
+$alt-primary-lighter: mat.get-color-from-palette($my-alt-primary, 400);
+$alt-primary-very-light: mat.get-color-from-palette($my-alt-primary, 50);
+
+$accent: mat.get-color-from-palette($my-app-accent);
+$warn: mat.get-color-from-palette($my-app-warn);
+
+$light-line-color: rgba(0, 0, 0, 0.2);
+$light-line-border: 1px solid $light-line-color;
+
+$dark-line-color: rgba(0, 0, 0, 0.4);
+$dark-line-border: 2px solid $dark-line-color;
+
+$text-color: rgba(0, 0, 0, 0.87);
+
+$scrollbar-width: 10px;
+$scrollbar-height: 10px;
+
+$scrollbar-background: mat.get-color-from-palette($my-app-grey, 400);
+$scrollbar-thumb: mat.get-color-from-palette($my-app-grey, 600);
+
+$error-message-font-size: 0.75rem;
+
+:root {
+	.primary-background {
+		background-color: $primary;
+	}
+
+	.error-color {
+		color: $warn;
+	}
+}
+
+$dialog-button-alignment: flex-end;

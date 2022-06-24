@@ -14,7 +14,10 @@
 				"tsConfig": "apps/forms-demo/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
 				"assets": ["apps/forms-demo/src/favicon.ico", "apps/forms-demo/src/assets"],
-				"styles": ["apps/forms-demo/src/styles.scss"],
+				"styles": ["apps/forms-demo/src/styles/styles.scss", "apps/forms-demo/src/styles/theme-variables.scss"],
+				"stylePreprocessorOptions": {
+					"includePaths": ["apps/forms-demo/src/styles"]
+				},
 				"scripts": []
 			},
 			"configurations": {
