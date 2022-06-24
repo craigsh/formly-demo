@@ -1,0 +1,22 @@
+{
+	"projectType": "library",
+	"sourceRoot": "libs/models/src",
+	"prefix": "demo",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/models"],
+			"options": {
+				"jestConfig": "libs/models/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/models/**/*.ts", "libs/models/**/*.html"]
+			}
+		}
+	},
+	"tags": ["shared"]
+}
