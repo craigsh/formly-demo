@@ -1,8 +1,49 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
 	selector: 'demo-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss'],
+	template: `
+		<demo-welcome></demo-welcome>
+		<div class="router-wrapper">
+			<router-outlet></router-outlet>
+		</div>
+	`,
+	styles: [
+		`
+			:host {
+				--gradient: linear-gradient(45deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871);
+
+				display: grid;
+				height: 100%;
+
+				grid-template-rows: auto 1fr;
+
+				background-image: var(--gradient);
+				background-size: 400%;
+				background-position: right;
+				transition: background-position 1s ease-in-out;
+				animation: bg-animation 30s infinite alternate;
+			}
+
+			@keyframes bg-animation {
+				0% {
+					background-position: left;
+				}
+				100% {
+					background-position: right;
+				}
+			}
+
+			.router-wrapper {
+				margin: 1rem;
+				padding: 0.5rem;
+				background-color: #fff;
+				opacity: 0.8;
+				border-radius: 1rem;
+				box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.2);
+			}
+		`,
+	],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}
