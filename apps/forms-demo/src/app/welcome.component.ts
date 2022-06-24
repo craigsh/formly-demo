@@ -17,7 +17,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 				</button>
 			</nav>
 		</mat-toolbar>
-		<router-outlet></router-outlet>
 	`,
 	styles: [
 		`
