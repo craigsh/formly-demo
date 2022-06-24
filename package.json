@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~14.0.0",
     "@angular/platform-browser-dynamic": "~14.0.0",
     "@angular/router": "~14.0.0",
+    "@ngx-formly/core": "^5.12.5",
+    "@ngx-formly/material": "^5.12.5",
     "@nrwl/angular": "14.3.6",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
