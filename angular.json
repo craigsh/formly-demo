@@ -2,8 +2,8 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"formly": "libs/formly",
 		"formly-productive": "libs/formly-productive",
+		"formly-simple": "libs/formly-simple",
 		"forms-demo": "apps/forms-demo",
 		"forms-demo-e2e": "apps/forms-demo-e2e",
 		"models": "libs/models",

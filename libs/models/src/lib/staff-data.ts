@@ -15,7 +15,7 @@ export const StaffData: StaffModel[] = [
 		addressLine4: '',
 		postcode: 'AB1 2CD',
 		phoneNumber: '0123456789',
-		titleId: '1',
-		genderId: '1',
+		titleId: 1,
+		genderId: 1,
 	},
 ];

@@ -11,8 +11,8 @@ const routes: Routes = [
 		loadChildren: () => import('@demo/reactive').then((module) => module.ReactiveModule),
 	},
 	{
-		path: 'formly',
-		loadChildren: () => import('@demo/formly').then((module) => module.FormlyModule),
+		path: 'formly-simple',
+		loadChildren: () => import('@demo/formly-simple').then((module) => module.FormlySimpleModule),
 	},
 	{
 		path: 'formly-productive',

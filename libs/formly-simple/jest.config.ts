@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-	displayName: 'formly',
+	displayName: 'formly-simple',
 	preset: '../../jest.preset.js',
 	setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
 	globals: {
@@ -9,7 +9,7 @@ export default {
 			stringifyContentPathRegex: '\\.(html|svg)$',
 		},
 	},
-	coverageDirectory: '../../coverage/libs/formly',
+	coverageDirectory: '../../coverage/libs/formly-simple',
 	transform: {
 		'^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
 	},

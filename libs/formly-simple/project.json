@@ -1,0 +1,22 @@
+{
+	"projectType": "library",
+	"sourceRoot": "libs/formly-simple/src",
+	"prefix": "demo",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/formly-simple"],
+			"options": {
+				"jestConfig": "libs/formly-simple/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/formly-simple/**/*.ts", "libs/formly-simple/**/*.html"]
+			}
+		}
+	},
+	"tags": ["feature"]
+}

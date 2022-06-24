@@ -5,7 +5,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	template: `
 		<demo-welcome></demo-welcome>
 		<div class="router-wrapper">
-			<router-outlet></router-outlet>
+			<div class="inner-wrapper">
+				<router-outlet></router-outlet>
+			</div>
 		</div>
 	`,
 	styles: [
@@ -41,6 +43,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 				opacity: 0.8;
 				border-radius: 1rem;
 				box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.2);
+				overflow: hidden;
+			}
+
+			.inner-wrapper {
+				overflow-y: auto;
+				padding: 0.5rem;
+				height: 100%;
 			}
 		`,
 	],

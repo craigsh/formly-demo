@@ -4,8 +4,8 @@ export type StaffModel = {
 	surname: string;
 	initials: string;
 	dateOfBirth: Date;
-	genderId: string;
-	titleId: string;
+	genderId: number;
+	titleId: number;
 	addressLine1: string;
 	addressLine2: string;
 	addressLine3: string;

@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 			<nav>
 				<button mat-button routerLink="/template-driven" routerLinkActive="active-line">Template-driven</button>
 				<button mat-button routerLink="/reactive" routerLinkActive="active-line">Reactive</button>
-				<button mat-button routerLink="/formly" routerLinkActive="active-line">Formly</button>
+				<button mat-button routerLink="/formly-simple" routerLinkActive="active-line">Formly Simple</button>
 				<button mat-button routerLink="/formly-productive" routerLinkActive="active-line">
 					Formly Productive!
 				</button>
