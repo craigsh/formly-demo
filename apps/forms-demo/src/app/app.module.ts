@@ -12,6 +12,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
+import { PanelWrapperComponent } from '@demo/shared/formly-components';
 
 @NgModule({
 	declarations: [AppComponent, WelcomeComponent],
@@ -22,7 +23,9 @@ import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
 		MatButtonModule,
 		AppRoutingModule,
 		FormlyMaterialModule,
-		FormlyModule.forRoot({}),
+		FormlyModule.forRoot({
+			wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
+		}),
 		MatNativeDateModule,
 		FormlyMatDatepickerModule,
 		FormlyMatToggleModule,

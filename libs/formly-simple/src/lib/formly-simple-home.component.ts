@@ -71,7 +71,7 @@ export class FormlySimpleHomeComponent implements OnInit {
 		},
 		{
 			key: '',
-			// wrappers: ['panel'],
+			wrappers: ['panel'],
 			templateOptions: { label: 'Address' },
 			fieldGroup: [
 				{
