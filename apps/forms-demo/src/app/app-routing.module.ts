@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 	{
+		path: '',
+		loadChildren: () => import('@demo/landing').then((module) => module.LandingModule),
+	},
+	{
 		path: 'template-driven',
 		loadChildren: () => import('@demo/template-driven').then((module) => module.TemplateDrivenModule),
 	},
