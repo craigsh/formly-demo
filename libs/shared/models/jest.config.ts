@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-	displayName: 'models',
-	preset: '../../jest.preset.js',
+	displayName: 'shared-models',
+	preset: '../../../jest.preset.js',
 	setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
 	globals: {
 		'ts-jest': {
@@ -9,7 +9,7 @@ export default {
 			stringifyContentPathRegex: '\\.(html|svg)$',
 		},
 	},
-	coverageDirectory: '../../coverage/libs/models',
+	coverageDirectory: '../../../coverage/libs/shared/models',
 	transform: {
 		'^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
 	},

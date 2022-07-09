@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { StaffModel, StaffData } from '@demo/models';
+import { StaffModel, StaffData } from '@demo/shared-models';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { Observable, of } from 'rxjs';
 

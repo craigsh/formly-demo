@@ -18,8 +18,9 @@
 			"@demo/formly-productive": ["libs/formly-productive/src/index.ts"],
 			"@demo/formly-simple": ["libs/formly-simple/src/index.ts"],
 			"@demo/landing": ["libs/landing/src/index.ts"],
-			"@demo/models": ["libs/models/src/index.ts"],
 			"@demo/reactive": ["libs/reactive/src/index.ts"],
+			"@demo/shared-models": ["libs/shared/models/src/index.ts"],
+			"@demo/shared/formly-components": ["libs/shared/formly-components/src/index.ts"],
 			"@demo/template-driven": ["libs/template-driven/src/index.ts"]
 		}
 	},

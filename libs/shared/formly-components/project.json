@@ -1,0 +1,22 @@
+{
+	"projectType": "library",
+	"sourceRoot": "libs/shared/formly-components/src",
+	"prefix": "ui",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/shared/formly-components"],
+			"options": {
+				"jestConfig": "libs/shared/formly-components/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/shared/formly-components/**/*.ts", "libs/shared/formly-components/**/*.html"]
+			}
+		}
+	},
+	"tags": ["shared"]
+}

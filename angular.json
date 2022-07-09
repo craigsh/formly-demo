@@ -7,8 +7,9 @@
 		"forms-demo": "apps/forms-demo",
 		"forms-demo-e2e": "apps/forms-demo-e2e",
 		"landing": "libs/landing",
-		"models": "libs/models",
 		"reactive": "libs/reactive",
+		"shared-formly-components": "libs/shared/formly-components",
+		"shared-models": "libs/shared/models",
 		"template-driven": "libs/template-driven"
 	}
 }
