@@ -10,6 +10,7 @@
 		"reactive": "libs/reactive",
 		"shared-formly-components": "libs/shared/formly-components",
 		"shared-models": "libs/shared/models",
+		"shared-services": "libs/shared/services",
 		"template-driven": "libs/template-driven"
 	}
 }

@@ -21,6 +21,7 @@
 			"@demo/reactive": ["libs/reactive/src/index.ts"],
 			"@demo/shared-models": ["libs/shared/models/src/index.ts"],
 			"@demo/shared/formly-components": ["libs/shared/formly-components/src/index.ts"],
+			"@demo/shared/services": ["libs/shared/services/src/index.ts"],
 			"@demo/template-driven": ["libs/template-driven/src/index.ts"]
 		}
 	},
