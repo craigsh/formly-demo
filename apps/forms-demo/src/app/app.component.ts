@@ -1,59 +1,103 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 
 @Component({
 	selector: 'demo-root',
 	template: `
-		<demo-welcome></demo-welcome>
-		<div class="router-wrapper">
-			<div class="inner-wrapper">
-				<router-outlet></router-outlet>
-			</div>
+		<div class="container" [class.is-mobile]="mobileQuery.matches">
+			<mat-toolbar color="primary" class="toolbar">
+				<button mat-icon-button (click)="sideNav.toggle()"><mat-icon>menu</mat-icon></button>
+				<h1 class="app-name">Forms demo</h1>
+			</mat-toolbar>
+
+			<mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+				<mat-sidenav
+					#sideNav
+					[mode]="mobileQuery.matches ? 'over' : 'side'"
+					[fixedInViewport]="mobileQuery.matches"
+					fixedTopGap="56"
+				>
+					<mat-nav-list>
+						<a
+							mat-list-item
+							*ngFor="let route of routes"
+							[routerLink]="route.path"
+							routerLinkActive="active-link"
+							>{{ route.title }}</a
+						>
+					</mat-nav-list>
+				</mat-sidenav>
+
+				<mat-sidenav-content>
+					<router-outlet></router-outlet>
+				</mat-sidenav-content>
+			</mat-sidenav-container>
 		</div>
 	`,
 	styles: [
 		`
-			:host {
-				/* --gradient: linear-gradient(45deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871); */
+			@import 'theme-variables';
 
-				display: grid;
-				height: 100%;
-
-				grid-template-rows: auto 1fr;
-
-				/* background-image: var(--gradient);
-				background-size: 400%;
-				background-position: right;
-				transition: background-position 1s ease-in-out;
-				animation: bg-animation 30s infinite alternate; */
+			.container {
+				display: flex;
+				flex-direction: column;
+				position: absolute;
+				inset: 0;
 			}
 
-			@keyframes bg-animation {
-				0% {
-					background-position: left;
-				}
-				100% {
-					background-position: right;
-				}
+			.is-mobile .toolbar {
+				position: fixed;
+				/* Make sure the toolbar will stay on top of the content as it scrolls past. */
+				z-index: 2;
+			}
+
+			.sidenav-container {
+				/* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     			   causes <mat-sidenav-content> to act as our scrolling element for desktop layouts. */
+				flex: 1;
+			}
+
+			.is-mobile .sidenav-container {
+				/* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     			   <body> to be our scrolling element for mobile layouts. */
+				flex: 1 0 auto;
+			}
+
+			mat-sidenav-content {
+				position: relative;
+				padding: 0.5rem;
 			}
 
 			.router-wrapper {
-				margin: 0.5rem;
-				padding: 0.5rem;
-				background-color: #fff;
-				opacity: 0.8;
-				border-radius: 0.5rem;
-				box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.2);
-				overflow: hidden;
-				background-color: #f7f7f7;
+				height: 100%;
 			}
 
-			.inner-wrapper {
-				overflow-y: auto;
-				padding: 0.5rem;
-				height: 100%;
+			.active-link {
+				color: $warn;
 			}
 		`,
 	],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {}
+export class AppComponent implements OnDestroy {
+	mobileQuery: MediaQueryList;
+	private _mobileQueryListener: () => void;
+
+	routes = [
+		{ path: '/reactive', title: 'Reactive' },
+		{ path: '/template-driven', title: 'Template-driven' },
+		{ path: '/mental-model', title: 'Mental model' },
+		{ path: '/formly-simple', title: 'Formly simple' },
+		{ path: '/formly-productive', title: 'Formly productive' },
+	];
+
+	constructor(media: MediaMatcher, cdRef: ChangeDetectorRef) {
+		this.mobileQuery = media.matchMedia('(max-width: 600px)');
+		this._mobileQueryListener = () => cdRef.detectChanges();
+		this.mobileQuery.addListener(this._mobileQueryListener);
+	}
+
+	ngOnDestroy(): void {
+		this.mobileQuery.removeListener(this._mobileQueryListener);
+	}
+}
