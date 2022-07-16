@@ -19,6 +19,8 @@ type SelectItem = {
 			}
 		`,
 	],
+	imports: [CommonModule, FormlyModule],
+	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormlySimpleHomeComponent implements OnInit {
@@ -185,10 +187,3 @@ export class FormlySimpleHomeComponent implements OnInit {
 		]);
 	}
 }
-
-@NgModule({
-	imports: [CommonModule, FormlyModule],
-	declarations: [FormlySimpleHomeComponent],
-	exports: [FormlySimpleHomeComponent],
-})
-export class FormlySimpleHomeComponentModule {}

@@ -44,6 +44,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 				border-radius: 0.5rem;
 				box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.2);
 				overflow: hidden;
+				background-color: #f7f7f7;
 			}
 
 			.inner-wrapper {

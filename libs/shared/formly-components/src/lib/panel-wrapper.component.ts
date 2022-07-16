@@ -1,35 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FieldWrapper } from '@ngx-formly/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, MatCardModule],
 	template: `
-		<div class="card">
-			<h3 class="card-header">{{ to.label }}</h3>
-			<div class="card-body">
+		<mat-card>
+			<mat-card-title>{{ to.label }}</mat-card-title>
+			<mat-card-content>
 				<ng-container #fieldComponent></ng-container>
-			</div>
-		</div>
+			</mat-card-content>
+		</mat-card>
 	`,
 	styles: [
 		`
 			:host {
-				h3 {
-					margin: 0 0 0.5rem 0;
-					font-weight: 500;
-					color: #333;
-					padding: 0.25rem;
-					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-				}
-
 				display: block;
-				.card {
-					border: 1px solid rgba(100, 100, 100, 0.5);
-					border-radius: 0.25rem;
-					padding: 0.5rem;
-				}
 			}
 		`,
 	],
