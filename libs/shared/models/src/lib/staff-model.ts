@@ -1,6 +1,6 @@
 export type StaffModel = {
 	staffCode: string;
-	firstName: string;
+	givenName: string;
 	surname: string;
 	initials: string;
 	dateOfBirth: Date;

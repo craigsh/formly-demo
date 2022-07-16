@@ -3,7 +3,7 @@ import { StaffModel } from './staff-model';
 export const StaffData: StaffModel[] = [
 	{
 		staffCode: 'S001',
-		firstName: 'John',
+		givenName: 'John',
 		surname: 'Smith',
 		initials: 'JS',
 		dateOfBirth: new Date('1980-01-01'),

@@ -27,9 +27,10 @@ export class FormlyProductiveHomeComponent implements OnInit {
 		dtoClassName: 'StaffModel',
 		fields: (b) => [
 			b.flexRow([
-				b.textField('firstName', {
+				b.textField('givenName', {
 					size: 2,
-					label: 'First Name',
+					label: 'Given name',
+					focus: true,
 					required: true,
 					maxLength: 50,
 				}),

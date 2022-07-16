@@ -34,10 +34,10 @@ export class FormlySimpleHomeComponent implements OnInit {
 			},
 		},
 		{
-			key: 'firstName',
+			key: 'givenName',
 			type: 'input',
 			templateOptions: {
-				label: 'First name',
+				label: 'Given name',
 				required: true,
 				maxLength: 30,
 			},
