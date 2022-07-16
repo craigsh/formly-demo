@@ -14,7 +14,11 @@
 				"tsConfig": "apps/forms-demo/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
 				"assets": ["apps/forms-demo/src/favicon.ico", "apps/forms-demo/src/assets"],
-				"styles": ["apps/forms-demo/src/styles/styles.scss", "apps/forms-demo/src/styles/theme-variables.scss"],
+				"styles": [
+					"apps/forms-demo/src/styles/styles.scss",
+					"apps/forms-demo/src/styles/theme-variables.scss",
+					"apps/forms-demo/src/styles/formly-styles.scss"
+				],
 				"stylePreprocessorOptions": {
 					"includePaths": ["apps/forms-demo/src/styles"]
 				},

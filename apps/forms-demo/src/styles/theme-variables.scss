@@ -2,8 +2,8 @@
 @use '@angular/material' as mat;
 
 // Define the theme - indigo/pink/red - traditional Staff.Care colours.
-$my-app-primary: mat.define-palette(mat.$deep-purple-palette);
-$my-app-accent: mat.define-palette(mat.$amber-palette);
+$my-app-primary: mat.define-palette(mat.$indigo-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette);
 $my-app-warn: mat.define-palette(mat.$red-palette);
 
 // Some alternative colours
@@ -25,7 +25,9 @@ $accent: mat.get-color-from-palette($my-app-accent);
 $warn: mat.get-color-from-palette($my-app-warn);
 
 $light-line-color: rgba(0, 0, 0, 0.2);
+$extra-light-line-color: rgba(120, 120, 120, 0.2);
 $light-line-border: 1px solid $light-line-color;
+$extra-light-line-border: 1px solid $extra-light-line-color;
 
 $dark-line-color: rgba(0, 0, 0, 0.4);
 $dark-line-border: 2px solid $dark-line-color;

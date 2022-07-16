@@ -10,6 +10,7 @@
 		"mental-model": "libs/mental-model",
 		"reactive": "libs/reactive",
 		"shared-formly-components": "libs/shared/formly-components",
+		"shared-formly-utils": "libs/shared/formly-utils",
 		"shared-models": "libs/shared/models",
 		"shared-services": "libs/shared/services",
 		"template-driven": "libs/template-driven"
