@@ -21,7 +21,7 @@ interface Model {
 				<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
 				<div class="buttons">
 					<button mat-raised-button (click)="clearName()">Clear name on model</button>
-					<button mat-raised-button (click)="clearNameForm()">Clear name on form</button>
+					<button mat-raised-button (click)="clearNameForm()">Clear - replace model</button>
 				</div>
 			</div>
 			<div class="model">
@@ -44,6 +44,7 @@ interface Model {
 
 				.wrapper {
 					display: flex;
+					flex-direction: column;
 					gap: 1rem;
 
 					> div {
