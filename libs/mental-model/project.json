@@ -1,0 +1,22 @@
+{
+	"projectType": "library",
+	"sourceRoot": "libs/mental-model/src",
+	"prefix": "mm",
+	"targets": {
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/libs/mental-model"],
+			"options": {
+				"jestConfig": "libs/mental-model/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"options": {
+				"lintFilePatterns": ["libs/mental-model/**/*.ts", "libs/mental-model/**/*.html"]
+			}
+		}
+	},
+	"tags": ["feature"]
+}
