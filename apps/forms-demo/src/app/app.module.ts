@@ -30,6 +30,7 @@ import { MatListModule } from '@angular/material/list';
 		MatListModule,
 		AppRoutingModule,
 		FormlyMaterialModule,
+		FormlyMatToggleModule,
 		FormlyModule.forRoot({
 			wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
 		}),

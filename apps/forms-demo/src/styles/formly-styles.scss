@@ -325,7 +325,7 @@ ui-group-box .border-light {
 }
 
 // Specific styling for time fields - narrow the input and underline
-.sc-time-field {
+.fd-time-field {
 	--time-field-width: 50px;
 
 	mat-form-field {
@@ -341,7 +341,7 @@ ui-group-box .border-light {
 }
 
 // Specific styling for time-value fields - narrow the input and underline
-.sc-time-value-field {
+.fd-time-value-field {
 	--time-value-field-width: 70px;
 
 	&.max-hours-2 {
@@ -361,7 +361,7 @@ ui-group-box .border-light {
 }
 
 // Specific styling for number fields - narrow the input and underline
-.sc-number-field {
+.fd-number-field {
 	--number-field-width: 50px;
 
 	&.wide {
@@ -386,7 +386,7 @@ ui-group-box .border-light {
 
 // Specific styling for date fields
 // TODO: This only works if the size is 1
-.sc-date-field {
+.fd-date-field {
 	--date-field-width: 110px;
 
 	mat-form-field {
@@ -413,8 +413,8 @@ ui-group-box .border-light {
 
 $check-tree-check-list-min-height: 150px;
 
-.sc-check-list-field,
-.sc-check-tree-field {
+.fd-check-list-field,
+.fd-check-tree-field {
 	margin-bottom: $control-bottom-margin;
 	min-height: $check-tree-check-list-min-height;
 	display: grid;
@@ -428,7 +428,7 @@ $check-tree-check-list-min-height: 150px;
 	}
 }
 
-.sc-ranks-grades-check-list-field {
+.fd-ranks-grades-check-list-field {
 	margin-bottom: $control-bottom-margin;
 	min-height: $check-tree-check-list-min-height;
 	> formly-group {
@@ -455,7 +455,7 @@ $check-tree-check-list-min-height: 150px;
 		> formly-field {
 			height: 100%;
 
-			.sc-check-list-field {
+			.fd-check-list-field {
 				margin-bottom: 0;
 			}
 
@@ -483,7 +483,7 @@ $check-tree-check-list-min-height: 150px;
 	}
 }
 
-.sc-date-range-field {
+.fd-date-range-field {
 	margin-bottom: $control-bottom-margin;
 
 	.dates-group {
@@ -509,16 +509,16 @@ $check-tree-check-list-min-height: 150px;
 	}
 }
 
-.sc-increment-picker-field .increment-picker-group {
+.fd-increment-picker-field .increment-picker-group {
 	display: flex;
 	gap: 1rem;
 }
 
-.sc-html-editor-field {
+.fd-html-editor-field {
 	margin-bottom: $control-bottom-margin;
 }
 
-.sc-radio-field {
+.fd-radio-field {
 	&.force-vertical {
 		mat-radio-button {
 			width: 100%;
@@ -530,7 +530,7 @@ $check-tree-check-list-min-height: 150px;
 	}
 }
 
-.sc-textarea-field {
+.fd-textarea-field {
 	textarea {
 		resize: none !important;
 		&.read-only {
@@ -541,31 +541,31 @@ $check-tree-check-list-min-height: 150px;
 	}
 }
 
-.sc-security-group-access-field {
+.fd-security-group-access-field {
 	margin-bottom: $control-bottom-margin;
 }
 
-.sc-security-group-tree-field {
+.fd-security-group-tree-field {
 	margin-bottom: $control-bottom-margin;
 }
 
-.sc-button-field {
+.fd-button-field {
 	&.button-flex-end {
 		display: flex;
 		justify-content: flex-end;
 	}
 }
 
-.sc-tabs-field {
+.fd-tabs-field {
 	margin-bottom: $control-bottom-margin;
 }
 
-.sc-transportable-outlet-field {
+.fd-transportable-outlet-field {
 	height: 100%;
 }
 
-.sc-staff-masters-field-wrapper {
-	.sc-staff-masters-field {
+.fd-staff-masters-field-wrapper {
+	.fd-staff-masters-field {
 		> .staff-masters-group {
 			.mat-form-field-wrapper {
 				padding-bottom: 0;
@@ -679,7 +679,7 @@ formly-field.shallow-top {
 	}
 }
 
-.sc-security-group-tree-field-grid {
+.fd-security-group-tree-field-grid {
 	.wrapper {
 		> formly-group {
 			height: 100%;
@@ -687,7 +687,7 @@ formly-field.shallow-top {
 			grid-template-rows: auto 1fr;
 		}
 
-		.sc-check-tree-field {
+		.fd-check-tree-field {
 			height: 100%;
 			> formly-group {
 				height: 100%;

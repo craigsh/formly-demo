@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
+import { SelectItem } from '@demo/shared-models';
 import { Observable, of } from 'rxjs';
-
-export type SelectItem = {
-	label: string;
-	value: string | number;
-};
 
 @Injectable({
 	providedIn: 'root',

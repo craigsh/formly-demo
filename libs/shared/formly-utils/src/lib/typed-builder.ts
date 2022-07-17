@@ -1,58 +1,36 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FlexOpts, GroupOpts } from './form-builders/layout-builders';
 import * as fb from '@demo/shared/formly-utils';
-import { TextFieldOpts } from '@demo/shared/formly-utils';
-// import {
-// 	ButtonFieldOpts,
-// 	CheckFieldOpts,
-// 	CheckListFieldOpts,
-// 	CheckTreeFieldOpts,
-// 	ChipsInputFieldOpts,
-// 	ColorFieldOpts,
-// 	ColorSampleFieldOpts,
-// 	DateFieldOpts,
-// 	DateRangeFieldOpts,
-// 	DisplayFieldOpts,
-// 	FileUploadFieldOpts,
-// 	FlexOpts,
-// 	GroupBoxWrapperOpts,
-// 	GroupOpts,
-// 	HiddenFieldOpts,
-// 	HtmlEditorFieldOpts,
-// 	IncrementPickerOpts,
-// 	MultiStaffMasterFieldOpts,
-// 	NumberFieldOpts,
-// 	RadioFieldOpts,
-// 	RanksGradesCheckListFieldOpts,
-// 	ReadOnlyListFieldOpts,
-// 	SecurityGroupAccessFieldOpts,
-// 	SecurityGroupTreeFieldOpts,
-// 	SelectFieldOpts,
-// 	TabsFieldOpts,
-// 	TemplateFieldOpts,
-// 	TextareaFieldOpts,
-// 	TextFieldOpts,
-// 	TimeFieldOpts,
-// 	TimeValueFieldOpts,
-// 	ToggleFieldOpts,
-// 	TransportableOutletFieldOpts,
-// 	UnitTeamTreeFieldOpts,
-// 	UnitUnitMasterFieldOpts,
-// } from '@siza-staff-care/shared/ui-components/form-builders';
+import {
+	ButtonFieldOpts,
+	CheckFieldOpts,
+	HiddenFieldOpts,
+	NumberFieldOpts,
+	PanelWrapperOpts,
+	RadioFieldOpts,
+	TextFieldOpts,
+	TransportableOutletFieldOpts,
+} from '@demo/shared/formly-utils';
+import { DateFieldOpts } from './form-builders/date-field';
+import { SelectFieldOpts } from './form-builders/select-field';
+import { ToggleFieldOpts } from './form-builders/toggle-field';
 
 export class TypedBuilder<TDto> {
-	// buttonField(key: keyof TDto | '', opts: ButtonFieldOpts): FormlyFieldConfig {
-	// 	return fb.buttonField(key, opts);
-	// }
+	buttonField(key: keyof TDto | '', opts: ButtonFieldOpts): FormlyFieldConfig {
+		return fb.buttonField(key, opts);
+	}
+
 	// checkListField(key: keyof TDto, opts: CheckListFieldOpts): FormlyFieldConfig {
 	// 	return fb.checkListField(key, opts);
 	// }
 	// checkTreeField(key: keyof TDto, opts: CheckTreeFieldOpts): FormlyFieldConfig {
 	// 	return fb.checkTreeField(key, opts);
 	// }
-	// checkboxField(key: keyof TDto, opts: CheckFieldOpts): FormlyFieldConfig {
-	// 	return fb.checkboxField(key, opts);
-	// }
+
+	checkboxField(key: keyof TDto, opts: CheckFieldOpts): FormlyFieldConfig {
+		return fb.checkboxField(key, opts);
+	}
+
 	// chipsInputField(key: keyof TDto, opts: ChipsInputFieldOpts): FormlyFieldConfig {
 	// 	return fb.chipsInputField(key, opts);
 	// }
@@ -66,9 +44,11 @@ export class TypedBuilder<TDto> {
 	// ): FormlyFieldConfig {
 	// 	return fb.colorSampleField(foregroundKey, backgroundKey, opts);
 	// }
-	// dateField(key: keyof TDto, opts: DateFieldOpts): FormlyFieldConfig {
-	// 	return fb.dateField(key, opts);
-	// }
+
+	dateField(key: keyof TDto, opts: DateFieldOpts): FormlyFieldConfig {
+		return fb.dateField(key, opts);
+	}
+
 	// dateRangeField(fromKey: keyof TDto, toKey: keyof TDto, opts: DateRangeFieldOpts): FormlyFieldConfig {
 	// 	return fb.dateRangeField(fromKey, toKey, opts);
 	// }
@@ -78,6 +58,7 @@ export class TypedBuilder<TDto> {
 	// fileUploadField(key: keyof TDto, opts: FileUploadFieldOpts): FormlyFieldConfig {
 	// 	return fb.fileUploadField(key, opts);
 	// }
+
 	flexRow(opts: FlexOpts, fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	flexRow(fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	flexRow(arg1: FlexOpts | FormlyFieldConfig[], fieldConfig?: FormlyFieldConfig[]): FormlyFieldConfig {
@@ -86,6 +67,7 @@ export class TypedBuilder<TDto> {
 		}
 		return fb.flexRow(arg1 as FlexOpts, fieldConfig as FormlyFieldConfig[]);
 	}
+
 	flexColumn(opts: FlexOpts, fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	flexColumn(fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	flexColumn(arg1: FlexOpts | FormlyFieldConfig[], fieldConfig?: FormlyFieldConfig[]): FormlyFieldConfig {
@@ -94,6 +76,7 @@ export class TypedBuilder<TDto> {
 		}
 		return fb.flexColumn(arg1 as FlexOpts, fieldConfig as FormlyFieldConfig[]);
 	}
+
 	group(opts: GroupOpts, fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	group(groupClass: string, fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
 	group(fieldConfig: FormlyFieldConfig[]): FormlyFieldConfig;
@@ -106,22 +89,25 @@ export class TypedBuilder<TDto> {
 		}
 		return fb.group(arg1 as GroupOpts, fieldConfig as FormlyFieldConfig[]);
 	}
-	// groupboxWrapper(controlName: string, opts: GroupBoxWrapperOpts, content: FormlyFieldConfig[]);
-	// groupboxWrapper(opts: GroupBoxWrapperOpts, content: FormlyFieldConfig[]);
-	// groupboxWrapper(
-	// 	arg1: string | GroupBoxWrapperOpts,
-	// 	arg2: GroupBoxWrapperOpts | FormlyFieldConfig[],
-	// 	arg3?: FormlyFieldConfig[],
-	// ): FormlyFieldConfig {
-	// 	if (typeof arg1 === 'string') {
-	// 		return fb.groupboxWrapper(arg1, arg2 as GroupBoxWrapperOpts, arg3 as FormlyFieldConfig[]);
-	// 	} else {
-	// 		return fb.groupboxWrapper(arg1 as GroupBoxWrapperOpts, arg2 as FormlyFieldConfig[]);
-	// 	}
-	// }
-	// hiddenField(key: keyof TDto, opts?: HiddenFieldOpts): FormlyFieldConfig {
-	// 	return fb.hiddenField(key, opts);
-	// }
+
+	panelWrapper(controlName: string, opts: PanelWrapperOpts, content: FormlyFieldConfig[]): FormlyFieldConfig;
+	panelWrapper(opts: PanelWrapperOpts, content: FormlyFieldConfig[]): FormlyFieldConfig;
+	panelWrapper(
+		arg1: string | PanelWrapperOpts,
+		arg2: PanelWrapperOpts | FormlyFieldConfig[],
+		arg3?: FormlyFieldConfig[],
+	): FormlyFieldConfig {
+		if (typeof arg1 === 'string') {
+			return fb.panelWrapper(arg1, arg2 as PanelWrapperOpts, arg3 as FormlyFieldConfig[]);
+		} else {
+			return fb.panelWrapper(arg1 as PanelWrapperOpts, arg2 as FormlyFieldConfig[]);
+		}
+	}
+
+	hiddenField(key: keyof TDto, opts?: HiddenFieldOpts): FormlyFieldConfig {
+		return fb.hiddenField(key, opts);
+	}
+
 	// htmlEditorField(key: keyof TDto, opts: HtmlEditorFieldOpts): FormlyFieldConfig {
 	// 	return fb.htmlEditorField(key, opts);
 	// }
@@ -135,12 +121,15 @@ export class TypedBuilder<TDto> {
 	// multiStaffMasterField(key: keyof TDto, opts: MultiStaffMasterFieldOpts<TDto>): FormlyFieldConfig {
 	// 	return fb.multiStaffMasterField(key, opts);
 	// }
-	// numberField(key: keyof TDto, opts: NumberFieldOpts): FormlyFieldConfig {
-	// 	return fb.numberField(key, opts);
-	// }
-	// radioField(key: keyof TDto, opts: RadioFieldOpts): FormlyFieldConfig {
-	// 	return fb.radioField(key, opts);
-	// }
+
+	numberField(key: keyof TDto, opts: NumberFieldOpts): FormlyFieldConfig {
+		return fb.numberField(key, opts);
+	}
+
+	radioField(key: keyof TDto, opts: RadioFieldOpts): FormlyFieldConfig {
+		return fb.radioField(key, opts);
+	}
+
 	// ranksGradesCheckListField(
 	// 	ranksKey: keyof TDto,
 	// 	gradesKey: keyof TDto,
@@ -158,18 +147,22 @@ export class TypedBuilder<TDto> {
 	// securityGroupTreeField(key: keyof TDto, opts: SecurityGroupTreeFieldOpts): FormlyFieldConfig {
 	// 	return fb.securityGroupTreeField(key, opts);
 	// }
-	// selectField(key: keyof TDto, opts: SelectFieldOpts): FormlyFieldConfig {
-	// 	return fb.selectField(key, opts);
-	// }
+
+	selectField(key: keyof TDto, opts: SelectFieldOpts): FormlyFieldConfig {
+		return fb.selectField(key, opts);
+	}
+
 	// tabsField(controlName: string, opts: TabsFieldOpts): FormlyFieldConfig {
 	// 	return fb.tabsField(controlName, opts);
 	// }
 	// templateField(controlName: string, opts: TemplateFieldOpts): FormlyFieldConfig {
 	// 	return fb.templateField(controlName, opts);
 	// }
+
 	textField(key: keyof TDto, opts: TextFieldOpts): FormlyFieldConfig {
 		return fb.textField(key, opts);
 	}
+
 	// textareaField(key: keyof TDto, opts: TextareaFieldOpts): FormlyFieldConfig {
 	// 	return fb.textareaField(key, opts);
 	// }
@@ -182,12 +175,15 @@ export class TypedBuilder<TDto> {
 	// todoField(name: string): FormlyFieldConfig {
 	// 	return fb.todoField(name);
 	// }
-	// toggleField(key: keyof TDto, opts: ToggleFieldOpts): FormlyFieldConfig {
-	// 	return fb.toggleField(key, opts);
-	// }
-	// transportableOutletField(targetClassName: string, opts?: TransportableOutletFieldOpts): FormlyFieldConfig {
-	// 	return fb.transportableOutletField(targetClassName, opts);
-	// }
+
+	toggleField(key: keyof TDto, opts: ToggleFieldOpts): FormlyFieldConfig {
+		return fb.toggleField(key, opts);
+	}
+
+	transportableOutletField(targetClassName: string, opts?: TransportableOutletFieldOpts): FormlyFieldConfig {
+		return fb.transportableOutletField(targetClassName, opts);
+	}
+
 	// unitTeamTreeField(key: keyof TDto, opts: UnitTeamTreeFieldOpts): FormlyFieldConfig {
 	// 	return fb.unitTeamTreeField(key, opts);
 	// }
