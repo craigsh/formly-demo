@@ -25,9 +25,9 @@ export class FormlyProductiveHomeComponent implements OnInit {
 	fields: FormlyFieldConfig[] = this.builder.buildSecuredTypedFields<StaffModel>({
 		parentName: '',
 		dtoClassName: 'StaffModel',
-		fields: (b) => [
-			b.flexRow([
-				b.textField('staffCode', {
+		fields: (fb) => [
+			fb.flexRow([
+				fb.textField('staffCode', {
 					label: 'Staff code',
 					size: 1,
 					focus: true,
@@ -35,66 +35,67 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					maxLength: 12,
 				}),
 			]),
-			b.flexRow([
-				b.textField('givenName', {
+			fb.flexRow([
+				fb.textField('givenName', {
 					size: 2,
 					label: 'Given name',
 					required: true,
 					maxLength: 50,
 				}),
 
-				b.textField('surname', {
+				fb.textField('surname', {
 					size: 2,
 					label: 'Surname',
 					required: true,
 					maxLength: 50,
 				}),
 
-				b.textField('initials', {
+				fb.textField('initials', {
 					size: 1,
 					label: 'Initials',
 					maxLength: 5,
 				}),
-				b.dateField('dateOfBirth', {
+				fb.dateField('dateOfBirth', {
 					label: 'Date of birth',
 					size: 1,
 				}),
 			]),
-			b.flexRow([
-				b.panelWrapper({ label: 'Address', size: 3, noGrow: true }, [
-					b.textField('addressLine1', { label: 'Line 1', maxLength: 30 }),
-					b.textField('addressLine2', { label: 'Line 2', maxLength: 30 }),
-					b.textField('addressLine3', { label: 'Line 3', maxLength: 30 }),
-					b.flexRow([
-						b.textField('addressLine4', { label: 'Line 4', size: 4, maxLength: 30 }),
-						b.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
+			fb.flexRow([
+				fb.panelWrapper({ label: 'Address', size: 3, noGrow: true }, [
+					fb.textField('addressLine1', { label: 'Line 1', maxLength: 30 }),
+					fb.textField('addressLine2', { label: 'Line 2', maxLength: 30 }),
+					fb.textField('addressLine3', { label: 'Line 3', maxLength: 30 }),
+					fb.flexRow([
+						fb.textField('addressLine4', { label: 'Line 4', size: 4, maxLength: 30 }),
+						fb.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
 					]),
 				]),
 			]),
-			b.flexRow([
-				b.toggleField('accessOwnRecordOnly', {
+			fb.flexRow([
+				fb.toggleField('accessOwnRecordOnly', {
 					label: 'Access own record only',
 					size: 2,
 				}),
 			]),
-			b.flexRow([
-				b.selectField('genderId', {
+			fb.flexRow([
+				fb.selectField('genderId', {
 					label: 'Gender',
 					size: 2,
 					lookups: this.lookupData.getGenders(),
 				}),
-				b.selectField('titleId', {
+				fb.selectField('titleId', {
 					label: 'Title',
 					size: 2,
 					lookups: this.lookupData.getTitles(),
 				}),
-				b.textField('emailAddress', {
+				fb.textField('emailAddress', {
 					label: 'Email address',
 					size: 3,
 				}),
-				b.textField('phoneNumber', {
+				fb.textField('phoneNumber', {
 					label: 'Phone number',
 					size: 1,
+					noGrow: true,
 				}),
 			]),
 		],
