@@ -6,7 +6,10 @@ import { LookupDataService } from '@demo/shared/services';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 
 @Component({
-	template: `<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>`,
+	template: `
+		<h1>Formly simple</h1>
+		<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+	`,
 	styles: [
 		`
 			:host {
