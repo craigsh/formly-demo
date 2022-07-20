@@ -7,7 +7,7 @@ export const StaffData: StaffModel[] = [
 		surname: 'Smith',
 		initials: 'JS',
 		dateOfBirth: new Date('1980-01-01'),
-		accessOwnRecordOnly: true,
+		acceptEmail: true,
 		emailAddress: 'john.smith.8903@email.com',
 		addressLine1: '123 Main Street',
 		addressLine2: '',

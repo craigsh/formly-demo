@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { StaffData } from '@demo/shared-models';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { StaffData } from '@demo/shared-models';
 import { LookupDataService } from '@demo/shared/services';
 
 @Component({
@@ -85,7 +86,9 @@ import { LookupDataService } from '@demo/shared/services';
 				</mat-select>
 			</mat-form-field>
 
-			<mat-form-field>
+			<mat-slide-toggle formControlName="acceptEmail">Accept email</mat-slide-toggle>
+
+			<mat-form-field *ngIf="profileForm.get('acceptEmail')?.value">
 				<mat-label>Email address</mat-label>
 				<input matInput formControlName="emailAddress" />
 			</mat-form-field>
@@ -123,6 +126,7 @@ export class ReactiveHomeComponent implements OnInit {
 		postcode: [''],
 		genderId: [],
 		titleId: [],
+		acceptEmail: [false],
 		emailAddress: [''],
 		phoneNumber: [''],
 	});
@@ -148,6 +152,7 @@ export class ReactiveHomeComponent implements OnInit {
 		MatNativeDateModule,
 		MatDatepickerModule,
 		MatSelectModule,
+		MatSlideToggleModule,
 	],
 	declarations: [ReactiveHomeComponent],
 	exports: [ReactiveHomeComponent],

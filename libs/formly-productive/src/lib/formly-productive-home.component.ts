@@ -72,12 +72,6 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				]),
 			]),
 			fb.flexRow([
-				fb.toggleField('accessOwnRecordOnly', {
-					label: 'Access own record only',
-					size: 2,
-				}),
-			]),
-			fb.flexRow([
 				fb.selectField('genderId', {
 					label: 'Gender',
 					size: 2,
@@ -88,14 +82,22 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					size: 2,
 					lookups: this.lookupData.getTitles(),
 				}),
-				fb.textField('emailAddress', {
-					label: 'Email address',
-					size: 3,
-				}),
 				fb.textField('phoneNumber', {
 					label: 'Phone number',
 					size: 1,
 					noGrow: true,
+				}),
+			]),
+			fb.flexRow({ size: 6 }, [
+				fb.toggleField('acceptEmail', {
+					label: 'Accept email',
+				}),
+				fb.textField('emailAddress', {
+					label: 'Email address',
+					expressionProperties: {
+						'templateOptions.disabled': '!model.acceptEmail',
+						'templateOptions.required': 'model.acceptEmail',
+					},
 				}),
 			]),
 		],

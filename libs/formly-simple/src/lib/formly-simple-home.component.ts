@@ -113,13 +113,6 @@ export class FormlySimpleHomeComponent implements OnInit {
 				},
 			],
 		},
-		{
-			key: 'accessOwnRecordOnly',
-			type: 'toggle',
-			templateOptions: {
-				label: 'Access own record only',
-			},
-		},
 
 		{
 			key: 'genderId',
@@ -137,11 +130,23 @@ export class FormlySimpleHomeComponent implements OnInit {
 				options: this.lookupData.getTitles(),
 			},
 		},
+
+		{
+			key: 'acceptEmail',
+			type: 'toggle',
+			templateOptions: {
+				label: 'Accept email',
+			},
+		},
+
 		{
 			key: 'emailAddress',
 			type: 'input',
 			templateOptions: {
 				label: 'Email address',
+			},
+			expressionProperties: {
+				'templateOptions.disabled': '!model.acceptEmail',
 			},
 		},
 		{

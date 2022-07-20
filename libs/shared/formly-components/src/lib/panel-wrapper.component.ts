@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 		`
 			:host {
 				display: block;
+				margin-bottom: 1rem;
 			}
 		`,
 	],

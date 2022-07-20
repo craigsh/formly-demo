@@ -11,7 +11,7 @@ export type StaffModel = {
 	addressLine3: string;
 	addressLine4: string;
 	postcode: string;
-	accessOwnRecordOnly: boolean;
+	acceptEmail: boolean;
 	emailAddress: string;
 	phoneNumber: string;
 };
