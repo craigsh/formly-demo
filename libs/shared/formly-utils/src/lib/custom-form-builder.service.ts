@@ -11,7 +11,7 @@ export class CustomFormBuilderService {
 	 * @param opts The options to build the control key from.
 	 * @returns
 	 */
-	buildSecuredTypedFields<TDto>(opts: {
+	buildFields<TDto>(opts: {
 		parentName: string;
 		dtoClassName?: string;
 		fields: (typedBuilder: TypedBuilder<TDto>) => FormlyFieldConfig[];
