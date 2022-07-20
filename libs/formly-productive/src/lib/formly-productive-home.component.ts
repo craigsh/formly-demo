@@ -22,7 +22,7 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 export class FormlyProductiveHomeComponent implements OnInit {
 	form = new UntypedFormGroup({});
 	model: Partial<StaffModel> = {};
-	fields: FormlyFieldConfig[] = this.builder.buildSecuredTypedFields<StaffModel>({
+	fields: FormlyFieldConfig[] = this.builder.buildFields<StaffModel>({
 		parentName: '',
 		dtoClassName: 'StaffModel',
 		fields: (fb) => [
@@ -61,12 +61,12 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				}),
 			]),
 			fb.flexRow([
-				fb.panelWrapper({ label: 'Address', size: 3, noGrow: true }, [
-					fb.textField('addressLine1', { label: 'Line 1', maxLength: 30 }),
-					fb.textField('addressLine2', { label: 'Line 2', maxLength: 30 }),
-					fb.textField('addressLine3', { label: 'Line 3', maxLength: 30 }),
+				fb.panelWrapper({ label: 'Address', size: 6, noGrow: true }, [
+					fb.textField('addressLine1', { label: 'Line 1', size: 4, maxLength: 30 }),
+					fb.textField('addressLine2', { label: 'Line 2', size: 4, maxLength: 30 }),
+					fb.textField('addressLine3', { label: 'Line 3', size: 4, maxLength: 30 }),
 					fb.flexRow([
-						fb.textField('addressLine4', { label: 'Line 4', size: 4, maxLength: 30 }),
+						fb.textField('addressLine4', { label: 'Line 4', size: 4, maxLength: 30, noGrow: true }),
 						fb.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
 					]),
 				]),
