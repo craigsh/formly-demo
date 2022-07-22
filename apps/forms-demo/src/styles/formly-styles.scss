@@ -34,14 +34,14 @@ formly-field {
 
 	.field-size-1 {
 		flex-basis: calc($width-100-pct/6 - $flex-column-gap);
-		mat-form-field {
+		> mat-form-field {
 			max-width: 200px;
 		}
 	}
 
 	.field-size-2 {
 		flex-basis: calc($width-100-pct/3 - $flex-column-gap);
-		mat-form-field {
+		> mat-form-field {
 			max-width: 400px;
 		}
 	}
@@ -49,21 +49,21 @@ formly-field {
 	.field-size-3,
 	.field-size-50 {
 		flex-basis: calc($width-100-pct/2 - $flex-column-gap);
-		mat-form-field {
+		> mat-form-field {
 			max-width: 600px;
 		}
 	}
 
 	.field-size-4 {
 		flex-basis: calc($width-100-pct/3 * 2 - $flex-column-gap);
-		mat-form-field {
+		> mat-form-field {
 			max-width: 800px;
 		}
 	}
 
 	.field-size-5 {
 		flex-basis: calc($width-100-pct/6 * 5 - $flex-column-gap);
-		mat-form-field {
+		> mat-form-field {
 			max-width: 1000px;
 		}
 	}
