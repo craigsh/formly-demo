@@ -13,6 +13,7 @@
 		"shared-formly-utils": "libs/shared/formly-utils",
 		"shared-models": "libs/shared/models",
 		"shared-services": "libs/shared/services",
+		"shared-transportable": "libs/shared/transportable",
 		"template-driven": "libs/template-driven"
 	}
 }

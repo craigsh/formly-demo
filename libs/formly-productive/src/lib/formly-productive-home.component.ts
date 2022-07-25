@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { StaffData, StaffModel } from '@demo/shared-models';
 import { FormlyComponentsModule } from '@demo/shared/formly-components';
 import { CustomFormBuilderService } from '@demo/shared/formly-utils';
 import { LookupDataService } from '@demo/shared/services';
+import { TransportableComponentModule } from '@demo/shared/transportable';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 
 @Component({
@@ -13,6 +15,11 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 		<form autocomplete="off">
 			<formly-form [model]="model" [fields]="fields"></formly-form>
 		</form>
+
+		<ui-transportable [hostQuerySelector]="'.break-out'">
+			<h2>I'm some custom content, inserted into the middle of a formly-form</h2>
+			<button type="button" mat-raised-button>Click me</button>
+		</ui-transportable>
 	`,
 	styles: [
 		`
@@ -21,7 +28,7 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 			}
 		`,
 	],
-	imports: [CommonModule, FormlyModule, FormlyComponentsModule],
+	imports: [CommonModule, FormlyModule, FormlyComponentsModule, TransportableComponentModule, MatButtonModule],
 	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -79,6 +86,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 						fb.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
 					]),
 				]),
+				fb.transportableOutletField('break-out', { size: 3 }),
 			]),
 
 			fb.flexRow([

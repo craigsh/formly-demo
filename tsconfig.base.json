@@ -24,6 +24,7 @@
 			"@demo/shared/formly-components": ["libs/shared/formly-components/src/index.ts"],
 			"@demo/shared/formly-utils": ["libs/shared/formly-utils/src/index.ts"],
 			"@demo/shared/services": ["libs/shared/services/src/index.ts"],
+			"@demo/shared/transportable": ["libs/shared/transportable/src/index.ts"],
 			"@demo/template-driven": ["libs/template-driven/src/index.ts"]
 		}
 	},
