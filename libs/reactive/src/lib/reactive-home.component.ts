@@ -15,7 +15,7 @@ import { LookupDataService } from '@demo/shared/services';
 	template: `
 		<h1>Reactive form</h1>
 
-		<form [formGroup]="profileForm">
+		<form autocomplete="off" [formGroup]="profileForm">
 			<mat-form-field>
 				<mat-label>Staff code</mat-label>
 				<input matInput formControlName="staffCode" maxlength="12" />

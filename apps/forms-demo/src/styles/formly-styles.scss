@@ -3,9 +3,16 @@
 @import 'theme-variables';
 @import 'theme-variables';
 
+form {
+	margin-inline: auto;
+	border: 1px solid #aaa;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	max-width: 1400px;
+}
+
 formly-form {
 	display: block;
-	max-width: 1400px;
 }
 
 .height-100pct {

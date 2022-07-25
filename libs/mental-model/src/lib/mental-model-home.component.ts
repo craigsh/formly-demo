@@ -7,7 +7,7 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 interface Model {
 	name: string;
 	address: string;
-	dateOfBirth: Date;
+	dateOfBirth: Date | undefined;
 }
 
 @Component({
@@ -18,12 +18,18 @@ interface Model {
 		<div class="wrapper">
 			<div class="form">
 				<h1>Form</h1>
-				<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+
+				<form autocomplete="off">
+					<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+				</form>
+
 				<div class="buttons">
 					<button mat-raised-button (click)="clearName()">Clear name on model</button>
-					<button mat-raised-button (click)="clearNameForm()">Clear - replace model</button>
+					<button mat-raised-button (click)="clearNameForm()">Clear - name field</button>
+					<button mat-raised-button (click)="newModel()">Replace model</button>
 				</div>
 			</div>
+
 			<div class="model">
 				<h1>Model</h1>
 				<pre>{{ model | json }}</pre>
@@ -37,9 +43,14 @@ interface Model {
 
 				.buttons {
 					display: flex;
+					width: 100%;
+
 					button {
 						margin-right: 1rem;
 					}
+
+					margin-top: 1rem;
+					justify-content: center;
 				}
 
 				.wrapper {
@@ -50,6 +61,15 @@ interface Model {
 					> div {
 						flex: 1;
 					}
+				}
+
+				.model {
+					max-width: 1400px;
+					margin-inline: auto;
+				}
+
+				pre {
+					font-size: 1rem;
 				}
 			}
 		`,
@@ -87,13 +107,17 @@ export class MentalModelHomeComponent {
 
 	clearName() {
 		this.model.name = '';
-
-		// Uncomment to show setting new model refreshes form.
-
-		//this.model = { ...this.model };
 	}
 
 	clearNameForm() {
 		this.form.get('name')?.setValue('');
+	}
+
+	newModel() {
+		this.model = {
+			name: '',
+			address: '',
+			dateOfBirth: undefined,
+		};
 	}
 }

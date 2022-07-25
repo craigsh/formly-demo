@@ -15,7 +15,7 @@ import { LookupDataService } from '@demo/shared/services';
 	template: `
 		<h1>Template-driven form</h1>
 
-		<form>
+		<form autocomplete="off">
 			<mat-form-field>
 				<mat-label>Staff code</mat-label>
 				<input name="staffCode" matInput [(ngModel)]="model.staffCode" maxlength="12" />

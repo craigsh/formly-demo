@@ -8,7 +8,10 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 @Component({
 	template: `
 		<h1>Formly simple</h1>
-		<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+
+		<form autocomplete="off">
+			<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+		</form>
 	`,
 	styles: [
 		`

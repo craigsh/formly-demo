@@ -10,19 +10,14 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 	template: `
 		<h1>Formly productive</h1>
 
-		<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+		<form autocomplete="off">
+			<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+		</form>
 	`,
 	styles: [
 		`
 			:host {
 				display: block;
-
-				formly-form {
-					margin-inline: auto;
-					border: 1px solid #aaa;
-					border-radius: 0.5rem;
-					padding: 1rem;
-				}
 			}
 		`,
 	],
