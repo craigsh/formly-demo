@@ -9,12 +9,20 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 @Component({
 	template: `
 		<h1>Formly productive</h1>
+
 		<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
 	`,
 	styles: [
 		`
 			:host {
 				display: block;
+
+				formly-form {
+					margin-inline: auto;
+					border: 1px solid #aaa;
+					border-radius: 0.5rem;
+					padding: 1rem;
+				}
 			}
 		`,
 	],
@@ -36,8 +44,10 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					focus: true,
 					required: true,
 					maxLength: 12,
+					noGrow: true,
 				}),
 			]),
+
 			fb.flexRow([
 				fb.textField('givenName', {
 					size: 2,
@@ -63,8 +73,9 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					size: 1,
 				}),
 			]),
+
 			fb.flexRow([
-				fb.panelWrapper({ label: 'Address', size: 6, noGrow: true }, [
+				fb.panelWrapper({ label: 'Address', size: 3, noGrow: true }, [
 					fb.textField('addressLine1', { label: 'Line 1', size: 4, maxLength: 30 }),
 					fb.textField('addressLine2', { label: 'Line 2', size: 4, maxLength: 30 }),
 					fb.textField('addressLine3', { label: 'Line 3', size: 4, maxLength: 30 }),
@@ -74,6 +85,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					]),
 				]),
 			]),
+
 			fb.flexRow([
 				fb.selectField('genderId', {
 					label: 'Gender',
@@ -91,6 +103,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					noGrow: true,
 				}),
 			]),
+
 			fb.flexRow({ size: 6 }, [
 				fb.toggleField('acceptEmail', {
 					label: 'Accept email',
