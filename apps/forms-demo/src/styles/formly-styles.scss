@@ -385,7 +385,6 @@ ui-group-box .border-light {
 }
 
 // Specific styling for date fields
-// TODO: This only works if the size is 1
 .fd-date-field {
 	--date-field-width: 110px;
 
@@ -406,7 +405,6 @@ ui-group-box .border-light {
 		mat-datepicker-toggle {
 			position: absolute;
 			top: -1rem;
-			right: 1rem;
 		}
 	}
 }
