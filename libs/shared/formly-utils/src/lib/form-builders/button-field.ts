@@ -34,7 +34,7 @@ export const buttonField = <TDto = object>(key: keyof TDto | '', opts: ButtonFie
 
 	const base = {
 		key,
-		type: 'button',
+		type: 'fd-button',
 		...applyStandardOpts(key, opts),
 	};
 

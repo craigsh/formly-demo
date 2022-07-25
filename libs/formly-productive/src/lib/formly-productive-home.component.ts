@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
 import { StaffData, StaffModel } from '@demo/shared-models';
+import { FormlyComponentsModule } from '@demo/shared/formly-components';
 import { CustomFormBuilderService } from '@demo/shared/formly-utils';
 import { LookupDataService } from '@demo/shared/services';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
@@ -11,7 +11,7 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 		<h1>Formly productive</h1>
 
 		<form autocomplete="off">
-			<formly-form [form]="form" [model]="model" [fields]="fields"></formly-form>
+			<formly-form [model]="model" [fields]="fields"></formly-form>
 		</form>
 	`,
 	styles: [
@@ -21,13 +21,13 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 			}
 		`,
 	],
-	imports: [CommonModule, FormlyModule],
+	imports: [CommonModule, FormlyModule, FormlyComponentsModule],
 	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormlyProductiveHomeComponent implements OnInit {
-	form = new UntypedFormGroup({});
-	model: Partial<StaffModel> = {};
+	model?: StaffModel;
+
 	fields: FormlyFieldConfig[] = this.builder.buildFields<StaffModel>({
 		parentName: '',
 		dtoClassName: 'StaffModel',
@@ -108,6 +108,20 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					expressionProperties: {
 						'templateOptions.disabled': '!model.acceptEmail',
 						'templateOptions.required': 'model.acceptEmail',
+					},
+				}),
+			]),
+
+			fb.flexRow([
+				fb.buttonField('', {
+					label: 'Save',
+					onClick: () => {
+						const model = this.model;
+						if (!model) {
+							return;
+						}
+
+						console.log(model);
 					},
 				}),
 			]),
