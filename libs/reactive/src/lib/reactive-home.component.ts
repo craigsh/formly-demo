@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -42,31 +43,36 @@ import { LookupDataService } from '@demo/shared/services';
 			<mat-form-field>
 				<mat-label>Date of birth</mat-label>
 				<input matInput [matDatepicker]="picker" formControlName="dateOfBirth" />
-				<mat-hint>MM/DD/YYYY</mat-hint>
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
 
-			<mat-form-field>
-				<mat-label>Address line 1</mat-label>
-				<input matInput formControlName="addressLine1" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 2</mat-label>
-				<input matInput formControlName="addressLine2" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 3</mat-label>
-				<input matInput formControlName="addressLine3" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 4</mat-label>
-				<input matInput formControlName="addressLine4" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Postcode</mat-label>
-				<input matInput formControlName="postcode" />
-			</mat-form-field>
+			<mat-card>
+				<mat-card-title>Address</mat-card-title>
+
+				<mat-card-content>
+					<mat-form-field>
+						<mat-label>Address line 1</mat-label>
+						<input matInput formControlName="addressLine1" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 2</mat-label>
+						<input matInput formControlName="addressLine2" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 3</mat-label>
+						<input matInput formControlName="addressLine3" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 4</mat-label>
+						<input matInput formControlName="addressLine4" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Postcode</mat-label>
+						<input matInput formControlName="postcode" />
+					</mat-form-field>
+				</mat-card-content>
+			</mat-card>
 
 			<mat-form-field>
 				<mat-label>Gender</mat-label>
@@ -106,6 +112,15 @@ import { LookupDataService } from '@demo/shared/services';
 				form {
 					display: flex;
 					flex-direction: column;
+				}
+
+				mat-card-content {
+					display: flex;
+					flex-direction: column;
+				}
+
+				mat-card {
+					margin-bottom: 1rem;
 				}
 			}
 		`,
@@ -147,6 +162,7 @@ export class ReactiveHomeComponent implements OnInit {
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
+		MatCardModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatNativeDateModule,

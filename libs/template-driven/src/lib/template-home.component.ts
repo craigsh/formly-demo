@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,26 +48,32 @@ import { LookupDataService } from '@demo/shared/services';
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
 
-			<mat-form-field>
-				<mat-label>Address line 1</mat-label>
-				<input name="addressLine1" matInput [(ngModel)]="model.addressLine1" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 2</mat-label>
-				<input name="addressLine2" matInput [(ngModel)]="model.addressLine2" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 3</mat-label>
-				<input name="addressLine3" matInput [(ngModel)]="model.addressLine3" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Address line 4</mat-label>
-				<input name="addressLine4" matInput [(ngModel)]="model.addressLine4" />
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Postcode</mat-label>
-				<input name="postcode" matInput [(ngModel)]="model.postcode" />
-			</mat-form-field>
+			<mat-card>
+				<mat-card-title>Address</mat-card-title>
+
+				<mat-card-content>
+					<mat-form-field>
+						<mat-label>Address line 1</mat-label>
+						<input name="addressLine1" matInput [(ngModel)]="model.addressLine1" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 2</mat-label>
+						<input name="addressLine2" matInput [(ngModel)]="model.addressLine2" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 3</mat-label>
+						<input name="addressLine3" matInput [(ngModel)]="model.addressLine3" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Address line 4</mat-label>
+						<input name="addressLine4" matInput [(ngModel)]="model.addressLine4" />
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Postcode</mat-label>
+						<input name="postcode" matInput [(ngModel)]="model.postcode" />
+					</mat-form-field>
+				</mat-card-content>
+			</mat-card>
 
 			<mat-form-field>
 				<mat-label>Gender</mat-label>
@@ -107,6 +114,15 @@ import { LookupDataService } from '@demo/shared/services';
 					display: flex;
 					flex-direction: column;
 				}
+
+				mat-card-content {
+					display: flex;
+					flex-direction: column;
+				}
+
+				mat-card {
+					margin-bottom: 1rem;
+				}
 			}
 		`,
 	],
@@ -125,6 +141,7 @@ export class TemplateHomeComponent {
 	imports: [
 		CommonModule,
 		FormsModule,
+		MatCardModule,
 		MatFormFieldModule,
 		MatInputModule,
 		MatNativeDateModule,
