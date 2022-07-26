@@ -23,7 +23,7 @@ export interface ButtonFieldOpts<TDto = object> extends StandardOpts {
  * @param opts
  * @returns
  */
-export const buttonField = <TDto = object>(key: keyof TDto | '', opts: ButtonFieldOpts): FormlyFieldConfig => {
+export const buttonField = <TDto = unknown>(key: keyof TDto | '', opts: ButtonFieldOpts<TDto>): FormlyFieldConfig => {
 	if (opts.stretch && opts.pixelWidth) {
 		console.warn(`buttonField: can't set stretch AND a pixelWidth`);
 	}

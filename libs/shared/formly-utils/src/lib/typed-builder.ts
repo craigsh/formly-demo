@@ -16,7 +16,7 @@ import { SelectFieldOpts } from './form-builders/select-field';
 import { ToggleFieldOpts } from './form-builders/toggle-field';
 
 export class TypedBuilder<TDto> {
-	buttonField(key: keyof TDto | '', opts: ButtonFieldOpts): FormlyFieldConfig {
+	buttonField(key: keyof TDto | '', opts: ButtonFieldOpts<TDto>): FormlyFieldConfig {
 		return fb.buttonField(key, opts);
 	}
 
