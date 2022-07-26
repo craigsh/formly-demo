@@ -44,6 +44,12 @@ import { MyStore } from './productive-component-store';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormlyProductiveHomeComponent implements OnInit {
+	constructor(
+		private builder: CustomFormBuilderService,
+		private lookupData: LookupDataService,
+		protected store: MyStore,
+	) {}
+
 	model?: StaffModel;
 
 	fields: FormlyFieldConfig[] = this.builder.buildFields<StaffModel>({
@@ -181,12 +187,6 @@ export class FormlyProductiveHomeComponent implements OnInit {
 			]),
 		],
 	});
-
-	constructor(
-		private builder: CustomFormBuilderService,
-		private lookupData: LookupDataService,
-		protected store: MyStore,
-	) {}
 
 	ngOnInit() {
 		this.model = StaffData[0];
