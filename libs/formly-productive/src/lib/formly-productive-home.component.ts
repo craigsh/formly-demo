@@ -65,9 +65,8 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					maxLength: 12,
 					noGrow: true,
 					hooks: {
-						onInit: (field) => {
+						onInit: () => {
 							this.store.staffCodeInit();
-							//console.log('onInit', field);
 						},
 					},
 				}),
