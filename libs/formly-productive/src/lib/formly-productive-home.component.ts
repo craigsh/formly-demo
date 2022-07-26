@@ -19,8 +19,10 @@ import { MyStore } from './productive-component-store';
 
 		<ui-transportable hostQuerySelector=".break-out">
 			<h2>Custom content, inserted into the middle of a formly-form</h2>
+
 			<div class="row">
 				<button type="button" (click)="store.bumpClickCount()" mat-raised-button>Click me</button>
+
 				<h2>I've been clicked {{ store.count$ | async }} times</h2>
 			</div>
 		</ui-transportable>
