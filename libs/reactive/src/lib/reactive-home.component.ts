@@ -128,6 +128,8 @@ import { LookupDataService } from '@demo/shared/services';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReactiveHomeComponent implements OnInit {
+	constructor(private fb: FormBuilder, private lookupData: LookupDataService) {}
+
 	profileForm = this.fb.group({
 		staffCode: ['', Validators.required],
 		givenName: ['', Validators.required],
@@ -150,8 +152,6 @@ export class ReactiveHomeComponent implements OnInit {
 
 	genders = this.lookupData.getGenders();
 	titles = this.lookupData.getTitles();
-
-	constructor(private fb: FormBuilder, private lookupData: LookupDataService) {}
 
 	ngOnInit(): void {
 		this.profileForm.patchValue(this.model as any);

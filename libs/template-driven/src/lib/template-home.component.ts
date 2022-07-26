@@ -128,12 +128,12 @@ import { LookupDataService } from '@demo/shared/services';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateHomeComponent {
+	constructor(private lookupData: LookupDataService) {}
+
 	model = StaffData[0];
 
 	genders = this.lookupData.getGenders();
 	titles = this.lookupData.getTitles();
-
-	constructor(private lookupData: LookupDataService) {}
 }
 
 @NgModule({
