@@ -43,7 +43,6 @@ import { LookupDataService } from '@demo/shared/services';
 			<mat-form-field>
 				<mat-label>Date of birth</mat-label>
 				<input name="dateOfBirth" matInput [matDatepicker]="picker" [(ngModel)]="model.dateOfBirth" />
-				<mat-hint>MM/DD/YYYY</mat-hint>
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
 			</mat-form-field>
