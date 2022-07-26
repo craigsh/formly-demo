@@ -157,8 +157,6 @@ export class FormlySimpleHomeComponent implements OnInit {
 				'templateOptions.disabled': (model) => !model.acceptEmail,
 				'templateOptions.required': 'model.acceptEmail',
 			},
-
-			hideExpression: (model) => !model.acceptEmail,
 		},
 		{
 			key: 'phoneNumber',
