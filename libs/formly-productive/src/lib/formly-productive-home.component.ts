@@ -73,10 +73,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				}),
 				fb.buttonField('', {
 					label: 'Toggle advanced mode',
-					onClick: (event, model) => {
-						const m = model as any;
-						m.advancedMode = !m.advancedMode;
-
+					onClick: () => {
 						this.store.toggleAdvancedMode();
 					},
 				}),
@@ -122,7 +119,10 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					]),
 				]),
 
-				fb.transportableOutletField('break-out', { size: 3, hideExpression: '!model.advancedMode' }),
+				fb.transportableOutletField('break-out', {
+					size: 3,
+					expressionProperties: { hide: this.store.notAdvancedMode$ },
+				}),
 			]),
 
 			fb.flexRow([
@@ -149,9 +149,6 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				},
 				[
 					fb.toggleField('acceptEmail', {
-						// expressionProperties: {
-						// 	'templateOptions.disabled': this.store.notAdvancedMode$,
-						// },
 						label: 'Accept email',
 					}),
 					fb.textField('emailAddress', {
@@ -178,11 +175,10 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				}),
 				fb.buttonField('', {
 					label: 'Reset count',
-					hideExpression: '!model.advancedMode',
 					onClick: () => this.store.resetCount(),
-					// expressionProperties: {
-					// 	'templateOptions.hidden': this.store.notAdvancedMode$,
-					// },
+					expressionProperties: {
+						hide: this.store.notAdvancedMode$,
+					},
 				}),
 			]),
 		],
