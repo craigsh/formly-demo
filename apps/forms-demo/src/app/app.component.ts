@@ -86,7 +86,7 @@ export class AppComponent implements OnDestroy {
 	routes = [
 		{ path: '/reactive', title: 'Reactive' },
 		{ path: '/template-driven', title: 'Template-driven' },
-		{ path: '/mental-model', title: 'Mental model' },
+		// { path: '/mental-model', title: 'Mental model' },
 		{ path: '/formly-simple', title: 'Formly simple' },
 		{ path: '/formly-productive', title: 'Formly productive' },
 	];
