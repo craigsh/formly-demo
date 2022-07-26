@@ -7,7 +7,6 @@ import { CustomFormBuilderService } from '@demo/shared/formly-utils';
 import { LookupDataService } from '@demo/shared/services';
 import { TransportableComponentModule } from '@demo/shared/transportable';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
-import { of } from 'rxjs';
 import { MyStore } from './productive-component-store';
 
 @Component({
@@ -18,16 +17,24 @@ import { MyStore } from './productive-component-store';
 			<formly-form [model]="model" [fields]="fields"></formly-form>
 		</form>
 
-		<ui-transportable [hostQuerySelector]="'.break-out'">
-			<h2>I'm some custom content, inserted into the middle of a formly-form</h2>
-			<button type="button" (click)="store.bumpClickCount()" mat-raised-button>Click me</button>
-			<h2>I've been clicked {{ store.count$ | async }} times</h2>
+		<ui-transportable hostQuerySelector=".break-out">
+			<h2>Custom content, inserted into the middle of a formly-form</h2>
+			<div class="row">
+				<button type="button" (click)="store.bumpClickCount()" mat-raised-button>Click me</button>
+				<h2>I've been clicked {{ store.count$ | async }} times</h2>
+			</div>
 		</ui-transportable>
 	`,
 	styles: [
 		`
 			:host {
 				display: block;
+
+				.row {
+					display: flex;
+					gap: 1rem;
+					align-items: center;
+				}
 			}
 		`,
 	],
@@ -38,10 +45,6 @@ import { MyStore } from './productive-component-store';
 })
 export class FormlyProductiveHomeComponent implements OnInit {
 	model?: StaffModel;
-
-	anotherModel = {
-		advancedMode: false,
-	};
 
 	fields: FormlyFieldConfig[] = this.builder.buildFields<StaffModel>({
 		parentName: '',
@@ -64,24 +67,13 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				}),
 				fb.buttonField('', {
 					label: 'Toggle advanced mode',
-					onClick: () => this.store.toggleAdvancedMode(),
-				}),
+					onClick: (event, model) => {
+						const m = model as any;
+						m.advancedMode = !m.advancedMode;
 
-				{
-					key: 'advancedMode',
-					type: 'checkbox',
-					//model: this.anotherModel,
-					//					hide: true,
-					//hideExpression: (model) => !model.advancedMode,
-					templateOptions: {
-						label: 'Advanced mode',
-						hidden: true,
-						//hidden: true,
+						this.store.toggleAdvancedMode();
 					},
-					expressionProperties: {
-						'templateOptions.hidden': of(true),
-					},
-				},
+				}),
 			]),
 
 			fb.flexRow([
@@ -123,7 +115,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 						fb.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
 					]),
 				]),
-				fb.transportableOutletField('break-out', { size: 3 }),
+				fb.transportableOutletField('break-out', { size: 3, hideExpression: '!model.advancedMode' }),
 			]),
 
 			fb.flexRow([
@@ -150,9 +142,9 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				},
 				[
 					fb.toggleField('acceptEmail', {
-						expressionProperties: {
-							'templateOptions.disabled': this.store.notAdvancedMode$,
-						},
+						// expressionProperties: {
+						// 	'templateOptions.disabled': this.store.notAdvancedMode$,
+						// },
 						label: 'Accept email',
 					}),
 					fb.textField('emailAddress', {
@@ -174,15 +166,16 @@ export class FormlyProductiveHomeComponent implements OnInit {
 							return;
 						}
 
-						console.log(model, this.anotherModel);
+						console.log(model);
 					},
 				}),
 				fb.buttonField('', {
 					label: 'Reset count',
+					hideExpression: '!model.advancedMode',
 					onClick: () => this.store.resetCount(),
-					expressionProperties: {
-						'templateOptions.hidden': this.store.notAdvancedMode$,
-					},
+					// expressionProperties: {
+					// 	'templateOptions.hidden': this.store.notAdvancedMode$,
+					// },
 				}),
 			]),
 		],
