@@ -7,6 +7,8 @@ import { CustomFormBuilderService } from '@demo/shared/formly-utils';
 import { LookupDataService } from '@demo/shared/services';
 import { TransportableComponentModule } from '@demo/shared/transportable';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
+import { of } from 'rxjs';
+import { MyStore } from './productive-component-store';
 
 @Component({
 	template: `
@@ -18,7 +20,8 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 
 		<ui-transportable [hostQuerySelector]="'.break-out'">
 			<h2>I'm some custom content, inserted into the middle of a formly-form</h2>
-			<button type="button" mat-raised-button>Click me</button>
+			<button type="button" (click)="store.bumpClickCount()" mat-raised-button>Click me</button>
+			<h2>I've been clicked {{ store.count$ | async }} times</h2>
 		</ui-transportable>
 	`,
 	styles: [
@@ -30,10 +33,15 @@ import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 	],
 	imports: [CommonModule, FormlyModule, FormlyComponentsModule, TransportableComponentModule, MatButtonModule],
 	standalone: true,
+	providers: [MyStore],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormlyProductiveHomeComponent implements OnInit {
 	model?: StaffModel;
+
+	anotherModel = {
+		advancedMode: false,
+	};
 
 	fields: FormlyFieldConfig[] = this.builder.buildFields<StaffModel>({
 		parentName: '',
@@ -47,7 +55,33 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					required: true,
 					maxLength: 12,
 					noGrow: true,
+					hooks: {
+						onInit: (field) => {
+							this.store.staffCodeInit();
+							//console.log('onInit', field);
+						},
+					},
 				}),
+				fb.buttonField('', {
+					label: 'Toggle advanced mode',
+					onClick: () => this.store.toggleAdvancedMode(),
+				}),
+
+				{
+					key: 'advancedMode',
+					type: 'checkbox',
+					//model: this.anotherModel,
+					//					hide: true,
+					//hideExpression: (model) => !model.advancedMode,
+					templateOptions: {
+						label: 'Advanced mode',
+						hidden: true,
+						//hidden: true,
+					},
+					expressionProperties: {
+						'templateOptions.hidden': of(true),
+					},
+				},
 			]),
 
 			fb.flexRow([
@@ -56,6 +90,9 @@ export class FormlyProductiveHomeComponent implements OnInit {
 					label: 'Given name',
 					required: true,
 					maxLength: 50,
+					expressionProperties: {
+						'templateOptions.disabled': this.store.countTooHigh$,
+					},
 				}),
 
 				fb.textField('surname', {
@@ -107,18 +144,26 @@ export class FormlyProductiveHomeComponent implements OnInit {
 				}),
 			]),
 
-			fb.flexRow({ size: 6 }, [
-				fb.toggleField('acceptEmail', {
-					label: 'Accept email',
-				}),
-				fb.textField('emailAddress', {
-					label: 'Email address',
-					expressionProperties: {
-						'templateOptions.disabled': '!model.acceptEmail',
-						'templateOptions.required': 'model.acceptEmail',
-					},
-				}),
-			]),
+			fb.flexRow(
+				{
+					size: 6,
+				},
+				[
+					fb.toggleField('acceptEmail', {
+						expressionProperties: {
+							'templateOptions.disabled': this.store.notAdvancedMode$,
+						},
+						label: 'Accept email',
+					}),
+					fb.textField('emailAddress', {
+						label: 'Email address',
+						expressionProperties: {
+							'templateOptions.disabled': '!model.acceptEmail',
+							'templateOptions.required': 'model.acceptEmail',
+						},
+					}),
+				],
+			),
 
 			fb.flexRow([
 				fb.buttonField('', {
@@ -129,14 +174,25 @@ export class FormlyProductiveHomeComponent implements OnInit {
 							return;
 						}
 
-						console.log(model);
+						console.log(model, this.anotherModel);
+					},
+				}),
+				fb.buttonField('', {
+					label: 'Reset count',
+					onClick: () => this.store.resetCount(),
+					expressionProperties: {
+						'templateOptions.hidden': this.store.notAdvancedMode$,
 					},
 				}),
 			]),
 		],
 	});
 
-	constructor(private builder: CustomFormBuilderService, private lookupData: LookupDataService) {}
+	constructor(
+		private builder: CustomFormBuilderService,
+		private lookupData: LookupDataService,
+		protected store: MyStore,
+	) {}
 
 	ngOnInit() {
 		this.model = StaffData[0];

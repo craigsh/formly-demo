@@ -1,5 +1,5 @@
 {
-	"cSpell.words": ["additionals", "formly", "nrwl", "Parens", "plugins", "serializers"],
+	"cSpell.words": ["additionals", "formly", "ngrx", "nrwl", "Parens", "plugins", "serializers"],
 	"workbench.colorCustomizations": {
 		"sash.hoverBorder": "#fa1b49",
 		"statusBar.background": "#dd0531",
