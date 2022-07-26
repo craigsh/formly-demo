@@ -35,6 +35,11 @@ import { MyStore } from './productive-component-store';
 					gap: 1rem;
 					align-items: center;
 				}
+
+				h2 {
+					margin: 0;
+					padding: 0.25rem 0;
+				}
 			}
 		`,
 	],
