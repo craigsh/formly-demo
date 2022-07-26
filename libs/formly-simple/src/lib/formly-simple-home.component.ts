@@ -72,6 +72,7 @@ export class FormlySimpleHomeComponent implements OnInit {
 				label: 'Date of birth',
 			},
 		},
+
 		{
 			key: '',
 			wrappers: ['panel'],
@@ -151,9 +152,13 @@ export class FormlySimpleHomeComponent implements OnInit {
 			templateOptions: {
 				label: 'Email address',
 			},
+
 			expressionProperties: {
-				'templateOptions.disabled': '!model.acceptEmail',
+				'templateOptions.disabled': (model) => !model.acceptEmail,
+				'templateOptions.required': 'model.acceptEmail',
 			},
+
+			hideExpression: (model) => !model.acceptEmail,
 		},
 		{
 			key: 'phoneNumber',

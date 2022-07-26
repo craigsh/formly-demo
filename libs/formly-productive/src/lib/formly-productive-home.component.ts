@@ -115,6 +115,7 @@ export class FormlyProductiveHomeComponent implements OnInit {
 						fb.textField('postcode', { label: 'Postcode', size: 2, maxLength: 50 }),
 					]),
 				]),
+
 				fb.transportableOutletField('break-out', { size: 3, hideExpression: '!model.advancedMode' }),
 			]),
 

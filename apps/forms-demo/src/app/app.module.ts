@@ -33,6 +33,16 @@ import { MatListModule } from '@angular/material/list';
 		FormlyMatToggleModule,
 		FormlyModule.forRoot({
 			wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
+
+			validationMessages: [
+				{
+					name: 'required',
+					message: (error, field) => {
+						const label = field?.templateOptions?.label ?? 'This field';
+						return `${label} is required`;
+					},
+				},
+			],
 		}),
 		MatNativeDateModule,
 		FormlyMatDatepickerModule,
