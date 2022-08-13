@@ -39,7 +39,14 @@
 			"unitTestRunner": "jest"
 		},
 		"@nrwl/angular:component": {
-			"style": "scss"
+			"style": "scss",
+			"standalone": true,
+			"inlineTemplate": true,
+			"inlineStyle": true,
+			"skipTests": true,
+			"flat": true,
+			"displayBlock": "true",
+			"changeDetection": "OnPush"
 		},
 		"@nrwl/angular:scam": {
 			"style": "scss",
