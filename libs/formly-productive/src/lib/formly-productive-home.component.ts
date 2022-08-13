@@ -8,7 +8,6 @@ import { LookupDataService } from '@demo/shared/services';
 import { TransportableComponentModule } from '@demo/shared/transportable';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { MyStore } from './productive-component-store';
-
 @Component({
 	template: `
 		<h1>Formly productive</h1>
